@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LocatorsTest {
-	
+
 	static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -34,9 +34,26 @@ public class LocatorsTest {
 		// 7. Tag name Locator
 		driver.findElement(By.tagName("input")).sendKeys("Ravi");
 		Thread.sleep(2000);
+		driver.findElement(By.tagName("input")).clear();
 		// 8. XPath Locator
 		driver.findElement(By.xpath("//input[@id='subject']")).sendKeys("ravikanth@gmail.com");
 		Thread.sleep(2000);
+		// 9. Absolute XPath
+		driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/form/fieldset/div/input")).sendKeys("Prabhakar");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/form/fieldset/div/input")).clear();
+		// 10. Relative XPath
+		driver.findElement(By.xpath("//form/fieldset/div/input")).sendKeys("Ravikanth");
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("//form/fieldset/div/input")).clear();
+		// 11. Relative XPath with Id attribute
+		driver.findElement(By.xpath("//input[@id='user']")).sendKeys("Naresh");
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("//input[@id='user']")).clear();
+		// 12. Relative XPath with Name attribute
+		driver.findElement(By.xpath("//input[@name='user']")).sendKeys("Shiva");
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("//input[@name='user']")).clear();
 		driver.quit();
 	}
 
