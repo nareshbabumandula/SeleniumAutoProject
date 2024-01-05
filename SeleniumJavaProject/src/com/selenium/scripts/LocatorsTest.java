@@ -54,7 +54,7 @@ public class LocatorsTest {
 		driver.findElement(By.xpath("//input[@name='user']")).sendKeys("Shiva");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//input[@name='user']")).clear();
-		driver.quit();
+		driver.quit(); 
 	}
 
 }
