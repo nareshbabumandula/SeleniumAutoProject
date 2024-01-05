@@ -3,16 +3,24 @@ package com.selenium.scripts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class LocatorsTest {
 
 	static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException {
+	@BeforeClass
+	public void accessSite() {
 		System.setProperty("webdriver.chrome.driver", "./browsers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://www.mycontactform.com");
 		driver.manage().window().maximize();
+	}
+
+	@Test(priority = 0)
+	public void locatorsExample() throws InterruptedException {
 		// 1. ID Locator
 		driver.findElement(By.id("user")).sendKeys("Prabhakar");
 		// 2. Name Locator
@@ -38,6 +46,10 @@ public class LocatorsTest {
 		// 8. XPath Locator
 		driver.findElement(By.xpath("//input[@id='subject']")).sendKeys("ravikanth@gmail.com");
 		Thread.sleep(2000);
+	}
+
+	@Test(priority = 1)
+	public void advancedlocatorsExample() throws InterruptedException {
 		// 9. Absolute XPath
 		driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/form/fieldset/div/input")).sendKeys("Prabhakar");
 		Thread.sleep(2000);
@@ -54,6 +66,10 @@ public class LocatorsTest {
 		driver.findElement(By.xpath("//input[@name='user']")).sendKeys("Shiva");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//input[@name='user']")).clear();
+	}
+
+	@AfterClass
+	public void closeBrowser() {
 		driver.quit(); 
 	}
 
