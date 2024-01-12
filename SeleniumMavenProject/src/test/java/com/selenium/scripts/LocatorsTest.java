@@ -77,7 +77,24 @@ public class LocatorsTest {
 		driver.findElement(By.xpath("//input[contains(@id,'user')]")).sendKeys("Karuna");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//input[contains(@id,'user')]")).clear();
-		
+
+		// 15. CSS with starts with
+		driver.findElement(By.xpath("input[id^='use']")).sendKeys("Ravi");
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("input[id^='use']")).clear();
+
+
+		// 16. CSS with ends with
+		driver.findElement(By.xpath("input[id$='er']")).sendKeys("Sagar");
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("input[id$='er']")).clear();
+
+
+		// 17. CSS with contains
+		driver.findElement(By.xpath("input[id*='ser']")).sendKeys("Tony");
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("input[id*='ser']")).clear();
+
 
 	}
 
