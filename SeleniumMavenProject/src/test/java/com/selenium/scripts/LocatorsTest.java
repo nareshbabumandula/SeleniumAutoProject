@@ -68,6 +68,17 @@ public class LocatorsTest {
 		driver.findElement(By.xpath("//input[@name='user']")).sendKeys("Shiva");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//input[@name='user']")).clear();
+		// 13. Xpath with starts-with method
+		driver.findElement(By.xpath("//input[starts-with(@id,'use')]")).sendKeys("Bharath");
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("//input[starts-with(@id,'use')]")).clear();
+
+		// 14. Xpath with contains method
+		driver.findElement(By.xpath("//input[contains(@id,'user')]")).sendKeys("Karuna");
+		Thread.sleep(2000); 
+		driver.findElement(By.xpath("//input[contains(@id,'user')]")).clear();
+		
+
 	}
 
 	@AfterClass
