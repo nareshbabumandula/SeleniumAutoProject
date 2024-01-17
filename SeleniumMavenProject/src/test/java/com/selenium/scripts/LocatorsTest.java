@@ -56,18 +56,22 @@ public class LocatorsTest {
 		driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/form/fieldset/div/input")).sendKeys("Prabhakar");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/form/fieldset/div/input")).clear();
+		
 		// 10. Relative XPath
 		driver.findElement(By.xpath("//form/fieldset/div/input")).sendKeys("Ravikanth");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//form/fieldset/div/input")).clear();
+		
 		// 11. Relative XPath with Id attribute
 		driver.findElement(By.xpath("//input[@id='user']")).sendKeys("Naresh");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//input[@id='user']")).clear();
+		
 		// 12. Relative XPath with Name attribute
 		driver.findElement(By.xpath("//input[@name='user']")).sendKeys("Shiva");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("//input[@name='user']")).clear();
+		
 		// 13. Xpath with starts-with method
 		driver.findElement(By.xpath("//input[starts-with(@id,'use')]")).sendKeys("Bharath");
 		Thread.sleep(2000); 
@@ -83,19 +87,17 @@ public class LocatorsTest {
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("input[id^='use']")).clear();
 
-
 		// 16. CSS with ends with
 		driver.findElement(By.xpath("input[id$='er']")).sendKeys("Sagar");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("input[id$='er']")).clear();
-
 
 		// 17. CSS with contains
 		driver.findElement(By.xpath("input[id*='ser']")).sendKeys("Tony");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("input[id*='ser']")).clear();
 
-
+		
 	}
 
 	@AfterClass
