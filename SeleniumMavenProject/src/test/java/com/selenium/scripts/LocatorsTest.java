@@ -96,8 +96,7 @@ public class LocatorsTest {
 		driver.findElement(By.xpath("input[id*='ser']")).sendKeys("Tony");
 		Thread.sleep(2000); 
 		driver.findElement(By.xpath("input[id*='ser']")).clear();
-
-		
+	
 	}
 
 	@AfterClass
