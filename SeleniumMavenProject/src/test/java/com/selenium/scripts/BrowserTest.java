@@ -28,6 +28,9 @@ public class BrowserTest {
 		driver.manage().window().maximize();
 		System.out.println(driver.getTitle());
 		System.out.println(driver.getCurrentUrl());
+		driver.navigate().refresh();
+		driver.navigate().back();
+		driver.navigate().forward();
 		Thread.sleep(2000);
 		driver.quit();
 	}
