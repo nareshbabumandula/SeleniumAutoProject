@@ -1,5 +1,6 @@
 package com.testng.annotations;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -10,6 +11,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class TestNGAnnotations extends Generic {
 	
@@ -33,21 +35,25 @@ public class TestNGAnnotations extends Generic {
 
 	@Test(priority = 2, groups = "smoke")
 	void addToCart() {
+		//Assert.assertTrue(false);  // hard assertion
+		SoftAssert softassert = new SoftAssert();
+		softassert.assertTrue(false); // soft assertion or verification
 		System.out.println("Added the product to the cart..!");
+		softassert.assertAll();
 	}
 	
-	@Test(dependsOnMethods = {"addToCart"})
+	@Test(dependsOnMethods = {"addToCart"}, groups = "smoke", alwaysRun = true)
 	void checkOut() {
 		System.out.println("Checkedout the product..!");
 	}
 
-	@Test(dependsOnMethods = {"checkOut"})
+	@Test(dependsOnMethods = {"checkOut"}, groups = "smoke", enabled = true)
 	void placeOrder() {
 		System.out.println("Order placed successfully..!");
 	}
 	
 	// The @AfterClass annotated method will be invoked after the execution of all the test methods of the current class.
-	@AfterClass
+	@AfterClass()
 	void viewReceipt() {
 		System.out.println("Viewed the receipt..!");
 	}
