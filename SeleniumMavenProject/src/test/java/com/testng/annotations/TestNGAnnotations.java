@@ -9,10 +9,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+@Listeners(CustomListener.class)
 public class TestNGAnnotations extends Generic {
 	
 	//The @BeforeTest annotated method will be executed before the execution of all the test methods of available classes belonging to that folder.
